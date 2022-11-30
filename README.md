@@ -33,3 +33,11 @@ AMM-1111: create UserDocument entity
 * Fixed test names for User model tests
 * Moved asserts up by several lines for "<filename>" test in <filename> because currently they are not asserted since an expected exception in line 94 stops code execution beforehand.
 ```
+
+Further guidelines on commit message contents:
+1. Each commit SHOULD pass pipeline tests and code quality checkers on its own.
+2. Non-informative commits SHOULD be avoided. Examples of non-informative commits: "fix test", "fix phpstan", "fix phpcs", "code style fixes", "improve code".
+3. Commit message has to convey the message to the reader about the code's purpose clearly.
+4. Keep in mind that somebody might read those commit messages in the future when there is a need to read up on the original implementation. A good commit message can save a lot of time for the developer when one has to track down why some things were done the way that they were done. A non-informative commit at best can make the developer force to open commit history of that particular file and sift until the satisfying message is found. In worse cases if that line was created that way then it will lead the developer to nowhere and no explanation will be found, thus forcing  developer to start asking developers who are still around, hoping that they will remember what was done. In some cases no answer will be found and developer will be making changes hoping that this change doesn't break something else.
+5. If you make a mistake and you really need to fix something like a typo or missing param in phpDoc, then you can try to fixup (merge it with previous) using the git rebase -i OR git reset commands. More on them in other chapter. 
+6. If code has been reviewed and it requires some significant changes, do not overburden the reviewer and try to make a separate commit where your adjustment is documented with an informative commit message
